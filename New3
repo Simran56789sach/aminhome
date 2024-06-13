@@ -1,0 +1,99 @@
+@{
+    ViewBag.Title = "Admin Home";
+}
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <button id="menu-toggle" class="btn btn-outline-light">Menu</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-5">
+    <h1 class="display-4 text-center">Welcome to Admin Dashboard!</h1>
+    <p class="lead text-center">Manage all aspects of car information including adding, updating, and deleting details about cars, manufacturers, transmissions, and types.</p>
+    
+    <div class="row mt-4">
+        <div class="col-md-6 col-lg-3 mb-4">
+            <div class="card text-center shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Car Info</h5>
+                    <p class="card-text">Manage car information including model details and specifications.</p>
+                    @Html.ActionLink("Manage", "Index", "CarInfoes", new { @class = "btn btn-primary btn-block" })
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3 mb-4">
+            <div class="card text-center shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Transmission Types</h5>
+                    <p class="card-text">Add, update, and delete car transmission types.</p>
+                    @Html.ActionLink("Manage", "Index", "CarTransmissionTypes", new { @class = "btn btn-primary btn-block" })
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3 mb-4">
+            <div class="card text-center shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Manufacturers</h5>
+                    <p class="card-text">View and edit car manufacturer details.</p>
+                    @Html.ActionLink("Manage", "Index", "CarManufacturers", new { @class = "btn btn-primary btn-block" })
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3 mb-4">
+            <div class="card text-center shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Car Types</h5>
+                    <p class="card-text">Classify cars into different types and categories.</p>
+                    @Html.ActionLink("Manage", "Index", "CarTypes", new { @class = "btn btn-primary btn-block" })
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Sidebar -->
+<div id="sidebar" class="sidebar">
+    <button id="close-sidebar" class="close-btn btn btn-secondary">Back</button>
+
+    <ul class="list-group list-group-flush mt-3">
+        <li class="list-group-item">
+            @Html.ActionLink("Car Info", "Index", "CarInfoes")
+        </li>
+        <li class="list-group-item">
+            @Html.ActionLink("Car Transmission Types", "Index", "CarTransmissionTypes")
+        </li>
+        <li class="list-group-item">
+            @Html.ActionLink("Car Manufacturers", "Index", "CarManufacturers")
+        </li>
+        <li class="list-group-item">
+            @Html.ActionLink("Car Types", "Index", "CarTypes")
+        </li>
+    </ul>
+</div>
+
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#menu-toggle").click(function () {
+            $("#sidebar").css("left", "0");
+        });
+
+        $("#close-sidebar").click(function () {
+            $("#sidebar").css("left", "-250px");
+        });
+    });
+</script>
+
+
